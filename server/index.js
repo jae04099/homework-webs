@@ -1,8 +1,17 @@
 const express = require("express");
 const app = express();
+const mysql = require("mysql");
+
+const db = mysql.createConnection({
+    host: "localhost",
+    port: "3306",
+    user: "root",
+    password: "Lc0711zz",
+    database: "collegewebdb",
+});
 
 app.get("/", (req, res) => {
-    res.send("hello world");
+    
 });
 
 app.listen(3001, () => {
