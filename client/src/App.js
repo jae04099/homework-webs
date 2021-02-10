@@ -1,27 +1,50 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Navbar from './components/Navbar'
 import Axios from "axios";
 
 function App() {
     const [webName, setWebName] = useState("");
     const [webUrl, setWebUrl] = useState("");
-    const [webList, setWebList] = useState([])
+    const [webList, setWebList] = useState([]);
+    const [newList, setNewList] = useState("");
 
     useEffect(() => {
-      Axios.get('http://localhost:3001/api/get').then((res) => {
-        setWebList(res.data)
-      })
-    }, [])
+        Axios.get("http://localhost:3001/api/get").then((res) => {
+            setWebList(res.data);
+        });
+    }, []);
 
-const submitInfo = () => {
-  Axios.post('http://localhost:3001/api/insert', {webUrl: webUrl, webTitle: webName}).then(() => {
-    alert('successful insert')
-  })
-}
+    const submitInfo = () => {
+        Axios.post("http://localhost:3001/api/insert", {
+            webUrl: webUrl,
+            webTitle: webName,
+        });
+        setWebList([...webList, { webUrl: webUrl, webName: webName }]);
+    };
+
+    const deleteInfo = (web) => {
+        Axios.delete(`http://localhost:3001/api/delete/${web}`);
+    };
+    const updateInfo = (web) => {
+        Axios.put("http://localhost:3001/api/update", {
+            webUrl: web,
+            webTitle: newList,
+        });
+        setNewList("")
+    };
 
     return (
         <div className="App">
-            <h1>CRUD APP</h1>
+            <Navbar />
+            
+        </div>
+    );
+}
+
+export default App;
+
+{/* <h1>CRUD APP</h1>
             <div className="form">
                 <label>Movie Name:</label>
                 <input
@@ -41,11 +64,24 @@ const submitInfo = () => {
                 />
                 <button onClick={submitInfo}>submit</button>
                 {webList.map((props) => {
-                  return <h1>Name: {props.web_title}</h1>
+                    return (
+                        <div className="card">
+                            <h1>{props.web_title}</h1>
+                            <p>Web-Title: {props.web_url}</p>
+                            <button
+                                onClick={() => {
+                                    deleteInfo(props.web_title);
+                                }}
+                            >
+                                Delete
+                            </button>
+                            <input type="text" id="updateInput" onChange={(e) => {
+                              setNewList(e.target.value)
+                            }}/>
+                            <button onClick={() => {
+                              updateInfo(props.web_title)
+                            }}>Update</button>
+                        </div>
+                    );
                 })}
-            </div>
-        </div>
-    );
-}
-
-export default App;
+            </div> */}

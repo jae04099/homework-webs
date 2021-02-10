@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+nav {
+    position: sticky;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    background-color: #7662CD;
+    min-height: 10vh;
+    align-items: center;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    grid-column: 2/3;
+}
+
+.logo > h4 {
+    font-family: 'KOTRA_BOLD-Bold';
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.logo > h4 > span {
+    color: #FA8F2C;
+}
+
+.navlinks {
+    display: flex;
+    justify-self: end;
+}
+
+.navlinks > li {
+    font-family: 'KOTRA_BOLD-Bold';
+    /* background-color: beige; */
+}
+
+.navlinks > li > a {
+    font-size: 18px;
+    padding: 18px 18px 11px 18px;
+    color: #ffffff;
+    /* background-color: blue; */
+}
+
+.navlinks > li > a:hover {
+    border-bottom: 15px solid #fff;
+    z-index: 1;
+}
