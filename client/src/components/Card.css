@@ -8,24 +8,49 @@
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    background-color: gray;
+    background-color: #fff;
     max-width: 300px;
     flex: 1 1 40%;
-    /* flex-direction: row; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .title {
+    padding-bottom: 15px;
+    border-bottom: 0.78px solid rgba(99, 99, 99, 0.8);
 }
 
 .title h4 {
     font-size: 24px;
+    margin-bottom: 5px;
 }
-.title .url {
+
+.title .url > a {
+    text-decoration: none;
+    color: rgba(66, 66, 66, 0.8);
 }
 
 .desc {
+    margin-top: 20px;
+}
+
+.desc p {
+    margin-top: 15px;
 }
 
 .genre {
     display: flex;
+    margin-top: 20px;
+}
+
+.genre li {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7662CD;
+    background-color: #fff;
+    margin-right: 10px;
+    border: 1px solid #7662CD;
+    border-radius: 20px;
+    padding: 1px 5px;
+    list-style: none;
+
 }
