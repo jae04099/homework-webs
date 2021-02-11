@@ -1,5 +1,20 @@
-.category-wrap {
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+.categories {
     display: flex;
     align-items: center;
-    
+    justify-content: center;
+    list-style: none;
+    margin: 30px;
+}
+
+.categories li {
+    font-size: 24px;
+    font-weight: 600;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.categories li:last-child {
+    margin-right: 0;
 }

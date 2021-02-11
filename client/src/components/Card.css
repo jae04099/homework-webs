@@ -4,24 +4,14 @@
     font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
 }
 
-.infoCard-grid {
-    display: grid;
-    grid-column: 2/3;
-}
-
-.infoCard-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .infoCard {
-    
+    margin: 10px;
     padding: 20px;
     border-radius: 10px;
     background-color: gray;
-    max-width: 450px;
-    flex-direction: row;
+    max-width: 300px;
+    flex: 1 1 40%;
+    /* flex-direction: row; */
 }
 
 .title {

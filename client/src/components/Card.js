@@ -3,8 +3,6 @@ import "./Card.css";
 
 const Card = () => {
     return (
-        <div className="infoCard-grid">
-          <div className="infoCard-wrap">
             <div className="infoCard">
                 <div className="title">
                     <h4>Flaticon</h4>
@@ -18,7 +16,7 @@ const Card = () => {
                     <img
                         src="https://media.flaticon.com/share/flaticon-generic.jpg"
                         alt="web_og_image"
-                        style={{ width: 300 + "px" }}
+                        style={{ maxWidth: 260 + "px" }}
                     />
                     <p>
                         멋진 ppt 제작을 위한 깔끔한 아이콘들이 모여있는 웹.
@@ -31,8 +29,6 @@ const Card = () => {
                     <li>아이콘</li>
                 </ul>
             </div>
-        </div>
-        </div>
     );
 };
 

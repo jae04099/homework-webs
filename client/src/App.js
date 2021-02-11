@@ -41,9 +41,14 @@ function App() {
             <Navbar />
             <Category />
             <div className="cardWrap">
+                <div className="grid-card">
+                    <div className="flex-card">
+
                 <Card />
                 <Card />
                 <Card />
+                </div>
+                </div>
             </div>
         </div>
     );
