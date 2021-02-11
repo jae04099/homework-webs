@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from './components/Navbar'
+import Navbar from "./components/Navbar";
+import Card from "./components/Card";
 import Axios from "axios";
+import Category from "./components/Category";
 
 function App() {
     const [webName, setWebName] = useState("");
@@ -31,20 +33,25 @@ function App() {
             webUrl: web,
             webTitle: newList,
         });
-        setNewList("")
+        setNewList("");
     };
 
     return (
         <div className="App">
             <Navbar />
-            
+            <Category />
+            <div className="cardWrap">
+                <Card />
+                <Card />
+                <Card />
+            </div>
         </div>
     );
 }
 
 export default App;
 
-{/* <h1>CRUD APP</h1>
+/* <h1>CRUD APP</h1>
             <div className="form">
                 <label>Movie Name:</label>
                 <input
@@ -84,4 +91,4 @@ export default App;
                         </div>
                     );
                 })}
-            </div> */}
+            </div> */

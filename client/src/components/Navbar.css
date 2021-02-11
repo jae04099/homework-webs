@@ -9,9 +9,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    list-style-type: none;
 }
+
 
 nav {
     position: sticky;
@@ -21,10 +20,12 @@ nav {
     background-color: #7662CD;
     min-height: 10vh;
     align-items: center;
+    margin-bottom: 20px;
     box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
+    font-family: 'KOTRA_BOLD-Bold';
     grid-column: 2/3;
 }
 
@@ -35,6 +36,7 @@ nav {
 }
 
 .logo > h4 > span {
+    font-family: 'KOTRA_BOLD-Bold';
     color: #FA8F2C;
 }
 
@@ -44,11 +46,11 @@ nav {
 }
 
 .navlinks > li {
-    font-family: 'KOTRA_BOLD-Bold';
-    /* background-color: beige; */
+    list-style-type: none;
 }
 
 .navlinks > li > a {
+    font-family: 'KOTRA_BOLD-Bold';text-decoration: none;
     font-size: 18px;
     padding: 18px 18px 11px 18px;
     color: #ffffff;

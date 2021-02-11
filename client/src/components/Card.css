@@ -1,0 +1,41 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+* {
+    font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
+}
+
+.infoCard-grid {
+    display: grid;
+    grid-column: 2/3;
+}
+
+.infoCard-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoCard {
+    
+    padding: 20px;
+    border-radius: 10px;
+    background-color: gray;
+    max-width: 450px;
+    flex-direction: row;
+}
+
+.title {
+}
+
+.title h4 {
+    font-size: 24px;
+}
+.title .url {
+}
+
+.desc {
+}
+
+.genre {
+    display: flex;
+}
