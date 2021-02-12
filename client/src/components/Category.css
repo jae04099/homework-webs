@@ -9,7 +9,7 @@
 }
 
 .categories li {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     margin-right: 3rem;
     cursor: pointer;
@@ -19,6 +19,11 @@
 .categories li:hover {
     color: #FA8F2C;
     transition: 0.3s ease-out;
+}
+
+.categories > li > span {
+    color: gray;
+    font-weight: normal;
 }
 
 @keyframes fade-color {

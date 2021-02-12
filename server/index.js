@@ -41,15 +41,15 @@ app.delete("/api/delete/:webTitle", (req, res) => {
     });
 });
 
-app.put("/api/update", (req, res) => {
-    const title = req.body.webTitle;
-    const url = req.body.webUrl;
-    const sqlUpdate = "UPDATE web_lists SET web_url = ? WHERE web_title = ?";
+// app.put("/api/update", (req, res) => {
+//     const title = req.body.webTitle;
+//     const url = req.body.webUrl;
+//     const sqlUpdate = "UPDATE web_lists SET web_url = ? WHERE web_title = ?";
 
-    db.query(sqlUpdate, [url, title], (err, result) => {
-        if (err) console.log(err);
-    });
-});
+//     db.query(sqlUpdate, [url, title], (err, result) => {
+//         if (err) console.log(err);
+//     });
+// });
 
 app.listen(3001, () => {
     console.log("running on port 3001");
