@@ -35,6 +35,17 @@
     flex-direction: column;
 }
 
+.img-wrap {
+    overflow: hidden;
+    max-width: 260px;
+    max-height: 157px;
+    width: 100%;
+}
+
+.img-wrap img {
+    width: 100%;
+}
+
 .desc p {
     margin-top: 15px;
 }
@@ -59,6 +70,7 @@
 
 .no_og {
     max-width: 260px;
+    width: 100%;
     height: 157px;
     background-color: #f8ceec;
     background-image: linear-gradient(315deg, #f8e1f1 0%, #d1c1f8 74%);
