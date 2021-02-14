@@ -7,26 +7,26 @@ import Axios from "axios";
 import Category from "./components/Category";
 
 function App() {
-    const [lists, setLists] = useState([])
+    const [lists, setLists] = useState([]);
+    const [category, setCategory] = useState("countAll");
     useEffect(() => {
         Axios.get("http://localhost:3001/api/get").then((res) => {
-                     setLists(res.data);
-                     console.log(lists[0])
-                 });
-    }, [])
+            setLists(res.data);
+        });
+    }, []);
+    useEffect(() => {
+     console.log(category)   
+    }, [category])
     return (
         <div className="App">
             <Navbar />
-            <Category cardData = {lists}/>
+            <Category cardData={lists} setCategory={setCategory} />
             <div className="cardWrap">
                 <div className="grid-card">
                     <div className="flex-card">
                         {lists.map((cardData) => {
-                            return(
-                                <Card cardData = {cardData} />
-                            )
+                            return <Card cardData={cardData} category = {category}/>;
                         })}
-                        
                     </div>
                 </div>
             </div>
@@ -37,7 +37,8 @@ function App() {
 
 export default App;
 
- {/* <h1>CRUD APP</h1>
+{
+    /* <h1>CRUD APP</h1>
             <div className="form">
                 <label>Movie Name:</label>
                 <input
@@ -77,34 +78,34 @@ export default App;
                         </div>
                     );
                 })}
-            </div>  */}
-            // const [webName, setWebName] = useState("");
-            // const [webUrl, setWebUrl] = useState("");
-            // const [webList, setWebList] = useState([]);
-            // const [newList, setNewList] = useState("");
-        
-            // useEffect(() => {
-            //     Axios.get("http://localhost:3001/api/get").then((res) => {
-            //         setWebList(res.data);
-            //     });
-            // }, []);
-        
-            // const submitInfo = () => {
-            //     Axios.post("http://localhost:3001/api/insert", {
-            //         webUrl: webUrl,
-            //         webTitle: webName,
-            //     });
-            //     setWebList([...webList, { webUrl: webUrl, webName: webName }]);
-            // };
-        
-            // const deleteInfo = (web) => {
-            //     Axios.delete(`http://localhost:3001/api/delete/${web}`);
-            // };
-            // const updateInfo = (web) => {
-            //     Axios.put("http://localhost:3001/api/update", {
-            //         webUrl: web,
-            //         webTitle: newList,
-            //     });
-            //     setNewList("");
-            // };
-        
+            </div>  */
+}
+// const [webName, setWebName] = useState("");
+// const [webUrl, setWebUrl] = useState("");
+// const [webList, setWebList] = useState([]);
+// const [newList, setNewList] = useState("");
+
+// useEffect(() => {
+//     Axios.get("http://localhost:3001/api/get").then((res) => {
+//         setWebList(res.data);
+//     });
+// }, []);
+
+// const submitInfo = () => {
+//     Axios.post("http://localhost:3001/api/insert", {
+//         webUrl: webUrl,
+//         webTitle: webName,
+//     });
+//     setWebList([...webList, { webUrl: webUrl, webName: webName }]);
+// };
+
+// const deleteInfo = (web) => {
+//     Axios.delete(`http://localhost:3001/api/delete/${web}`);
+// };
+// const updateInfo = (web) => {
+//     Axios.put("http://localhost:3001/api/update", {
+//         webUrl: web,
+//         webTitle: newList,
+//     });
+//     setNewList("");
+// };

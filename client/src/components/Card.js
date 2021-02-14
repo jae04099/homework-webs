@@ -2,7 +2,6 @@ import React from "react";
 import "./Card.css";
 
 const Card = ({cardData}) => {
-    console.log(cardData.web_url)
     return (
             <div className="infoCard">
                 <div className="title">

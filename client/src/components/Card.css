@@ -10,11 +10,13 @@
     border-radius: 10px;
     background-color: #fff;
     max-width: 300px;
+    min-width: 250px;
     flex: 1 1 40%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .title {
+    word-wrap: break-word;
     padding-bottom: 15px;
     border-bottom: 0.78px solid rgba(99, 99, 99, 0.8);
 }

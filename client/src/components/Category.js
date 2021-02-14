@@ -1,16 +1,20 @@
 import React from 'react'
 import './Category.css'
 
-const Category = ({cardData}) => {
+const Category = ({cardData, setCategory}) => {
+
+    const getCategoryHandler = (e) => {
+        setCategory(e.target.className)
+    }
     return (
         <div className="category-wrap">
             <ul className="categories">
-                <li>전체<span className='countAll'>{`(${cardData.length})`}</span></li>
-                <li>디자인<span className='countDesign'>{`(${cardData.length})`}</span></li>
-                <li>레포트<span className='countReport'>()</span></li>
-                <li>논문<span className='countReport'>()</span></li>
-                <li>코딩<span className='countCS'>()</span></li>
-                <li>그외<span className='countEx'>()</span></li>
+                <li onClick={getCategoryHandler} className='countAll'>전체<span className='countAll'>{`(${cardData.length})`}</span></li>
+                <li onClick={getCategoryHandler} className='countDesign'>디자인<span className='countDesign'>{`(${cardData.length})`}</span></li>
+                <li onClick={getCategoryHandler} className='countTeam'>팀플<span className='countTeam'>()</span></li>
+                <li onClick={getCategoryHandler} className='countReport'>레포트<span className='countReport'>()</span></li>
+                <li onClick={getCategoryHandler} className='countCS'>코딩<span className='countCS'>()</span></li>
+                <li onClick={getCategoryHandler} className='countEx'>그외<span className='countEx'>()</span></li>
             </ul>
         </div>
     )
