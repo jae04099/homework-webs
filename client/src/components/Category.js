@@ -1,24 +1,90 @@
-import React from 'react'
-import './Category.css'
+import React from "react";
+import "./Category.css";
+import { makeStyles } from "@material-ui/core/styles";
+import { NativeSelect, Select, InputLabel, MenuItem } from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl";
 
-const Category = ({cardData, setCategory}) => {
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 200,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
 
+const Category = ({ cardData, setCategory }) => {
     const getCategoryHandler = (e) => {
-        setCategory(e.target.className)
-    }
+        setCategory(e.target.className);
+    };
+    const classes = useStyles();
+    const [state, setState] = React.useState({
+        age: '',
+        name: 'hai',
+      });
+    
+      const handleChange = (event) => {
+        const name = event.target.name;
+        setState({
+          ...state,
+          [name]: event.target.value,
+        });
+      };
+
     return (
         <div className="category-wrap">
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="age-native-helper">Age</InputLabel>
+                <NativeSelect
+                    value={state.age}
+                    onChange={handleChange}
+                    inputProps={{
+                        name: "age",
+                        id: "age-native-helper",
+                    }}
+                >
+                    <option aria-label="None" value="" />
+                    <option value={10}>Ten</option>
+                    <option value={20}>Twenty</option>
+                    <option value={30}>Thirty</option>
+                </NativeSelect>
+            </FormControl>
             <ul className="categories">
-                <li onClick={getCategoryHandler} className='countAll'>전체<span className='countAll'>{`(${cardData.length})`}</span></li>
-                <li onClick={getCategoryHandler} className='countDesign'>디자인<span className='countDesign'>{`(${cardData.length})`}</span></li>
-                <li onClick={getCategoryHandler} className='countTeam'>팀플<span className='countTeam'>()</span></li>
-                <li onClick={getCategoryHandler} className='countReport'>레포트<span className='countReport'>()</span></li>
-                <li onClick={getCategoryHandler} className='countStat'>통계<span className='countStat'>()</span></li>
-                <li onClick={getCategoryHandler} className='countCS'>컴공<span className='countCS'>()</span></li>
-                <li onClick={getCategoryHandler} className='countEx'>그외<span className='countEx'>()</span></li>
+                <li onClick={getCategoryHandler} className="countAll">
+                    전체
+                    <span className="countAll">{`(${cardData.length})`}</span>
+                </li>
+                <li onClick={getCategoryHandler} className="countDesign">
+                    디자인
+                    <span className="countDesign">{`(${cardData.length})`}</span>
+                </li>
+                <li onClick={getCategoryHandler} className="countTeam">
+                    팀플<span className="countTeam">()</span>
+                </li>
+                <li onClick={getCategoryHandler} className="countReport">
+                    레포트<span className="countReport">()</span>
+                </li>
+                <li onClick={getCategoryHandler} className="countStat">
+                    통계<span className="countStat">()</span>
+                </li>
+                <li onClick={getCategoryHandler} className="countCS">
+                    컴공<span className="countCS">()</span>
+                </li>
+                <li onClick={getCategoryHandler} className="countEx">
+                    그외<span className="countEx">()</span>
+                </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
 export default Category;
+
+{
+    /* <InputLabel id="label">Age</InputLabel>
+            <NativeSelect id="select">
+                <option value="10">Ten</option>
+                <option value="20">Twenty</option>
+            </NativeSelect> */
+}

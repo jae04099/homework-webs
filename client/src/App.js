@@ -15,24 +15,34 @@ function App() {
             setLists(res.data);
             setFiltered(res.data);
         });
-        
     }, []);
     useEffect(() => {
-     let filteredLists = lists 
-     if (category !== "countAll") {
-         filteredLists = filteredLists.filter(lists => lists.tag_class == category)
-     }
-     setFiltered(filteredLists)
-    }, [category])
+        let filteredLists = lists;
+        if (category !== "countAll") {
+            filteredLists = filteredLists.filter(
+                (lists) => lists.tag_class == category
+            );
+        }
+        setFiltered(filteredLists);
+    }, [category]);
     return (
         <div className="App">
             <Navbar />
-            <Category cardData={filtered} setCategory={setCategory} />
+            <div className="catWrap">
+                <div className="catInnerGrid">
+                <Category cardData={filtered} setCategory={setCategory} /></div>
+            </div>
             <div className="cardWrap">
                 <div className="grid-card">
                     <div className="flex-card">
                         {filtered.map((cardData) => {
-                            return <Card cardData={cardData} category = {category} key={cardData._id}/>;
+                            return (
+                                <Card
+                                    cardData={cardData}
+                                    category={category}
+                                    key={cardData._id}
+                                />
+                            );
                         })}
                     </div>
                 </div>
