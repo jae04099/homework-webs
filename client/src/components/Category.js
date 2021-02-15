@@ -13,7 +13,8 @@ const Category = ({cardData, setCategory}) => {
                 <li onClick={getCategoryHandler} className='countDesign'>디자인<span className='countDesign'>{`(${cardData.length})`}</span></li>
                 <li onClick={getCategoryHandler} className='countTeam'>팀플<span className='countTeam'>()</span></li>
                 <li onClick={getCategoryHandler} className='countReport'>레포트<span className='countReport'>()</span></li>
-                <li onClick={getCategoryHandler} className='countCS'>코딩<span className='countCS'>()</span></li>
+                <li onClick={getCategoryHandler} className='countStat'>통계<span className='countStat'>()</span></li>
+                <li onClick={getCategoryHandler} className='countCS'>컴공<span className='countCS'>()</span></li>
                 <li onClick={getCategoryHandler} className='countEx'>그외<span className='countEx'>()</span></li>
             </ul>
         </div>

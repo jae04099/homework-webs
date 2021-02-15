@@ -8,24 +8,31 @@ import Category from "./components/Category";
 
 function App() {
     const [lists, setLists] = useState([]);
+    const [filtered, setFiltered] = useState(lists);
     const [category, setCategory] = useState("countAll");
     useEffect(() => {
         Axios.get("http://localhost:3001/api/get").then((res) => {
             setLists(res.data);
+            setFiltered(res.data);
         });
+        
     }, []);
     useEffect(() => {
-     console.log(category)   
+     let filteredLists = lists 
+     if (category !== "countAll") {
+         filteredLists = filteredLists.filter(lists => lists.tag_class == category)
+     }
+     setFiltered(filteredLists)
     }, [category])
     return (
         <div className="App">
             <Navbar />
-            <Category cardData={lists} setCategory={setCategory} />
+            <Category cardData={filtered} setCategory={setCategory} />
             <div className="cardWrap">
                 <div className="grid-card">
                     <div className="flex-card">
-                        {lists.map((cardData) => {
-                            return <Card cardData={cardData} category = {category}/>;
+                        {filtered.map((cardData) => {
+                            return <Card cardData={cardData} category = {category} key={cardData._id}/>;
                         })}
                     </div>
                 </div>
