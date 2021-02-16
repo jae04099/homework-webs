@@ -13,6 +13,26 @@
     min-width: 250px;
     flex: 1 1 40%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    animation: toTop, fadeIn;
+    animation-duration: 700ms;
+}
+
+@keyframes toTop {
+    from {
+        margin-top: 100px;
+    }
+    to {
+        margin-top: 10px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .title {
@@ -60,14 +80,13 @@
 .genre li {
     font-size: 14px;
     font-weight: 600;
-    color: #7662CD;
+    color: #7662cd;
     background-color: #fff;
     margin-right: 10px;
-    border: 1px solid #7662CD;
+    border: 1px solid #7662cd;
     border-radius: 20px;
     padding: 1px 5px;
     list-style: none;
-
 }
 
 .no_og {

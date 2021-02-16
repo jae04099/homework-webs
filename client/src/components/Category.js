@@ -1,5 +1,4 @@
 import React from "react";
-import "./Category.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { NativeSelect, Select, InputLabel, MenuItem } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
@@ -23,7 +22,7 @@ const Category = ({ cardData, setCategory }) => {
     return (
         <div className="category-wrap">
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-helper">사이트 분야</InputLabel>
+                <InputLabel htmlFor="age-native-helper">분야</InputLabel>
                 <NativeSelect
                     onChange={getCategoryHandler}
                 >

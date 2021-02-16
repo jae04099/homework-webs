@@ -5,9 +5,14 @@ html {
     background: #F2F6FC;
 }
 
-.cardWrap, .catWrap {
+.cardWrap {
     display: grid;
     grid-template-columns: 5% 1fr 5%;
+}
+
+.catWrap {
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
 }
 
 .grid-card, .catInnerGrid {
