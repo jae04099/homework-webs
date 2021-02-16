@@ -16,65 +16,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Category = ({ cardData, setCategory }) => {
     const getCategoryHandler = (e) => {
-        setCategory(e.target.className);
+        setCategory(e.target.value);
     };
     const classes = useStyles();
-    const [state, setState] = React.useState({
-        age: '',
-        name: 'hai',
-      });
     
-      const handleChange = (event) => {
-        const name = event.target.name;
-        setState({
-          ...state,
-          [name]: event.target.value,
-        });
-      };
-
     return (
         <div className="category-wrap">
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-helper">Age</InputLabel>
+                <InputLabel htmlFor="age-native-helper">사이트 분야</InputLabel>
                 <NativeSelect
-                    value={state.age}
-                    onChange={handleChange}
-                    inputProps={{
-                        name: "age",
-                        id: "age-native-helper",
-                    }}
+                    onChange={getCategoryHandler}
                 >
-                    <option aria-label="None" value="" />
-                    <option value={10}>Ten</option>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
+                    <option value={"countAll"}>전체</option>
+                    <option value={"countDesign"}>디자인</option>
+                    <option value={"countTeam"}>팀플</option>
+                    <option value={"countReport"}>레포트</option>
+                    <option value={"countStat"}>통계</option>
+                    <option value={"countCS"}>컴공</option>
+                    <option value={"countEx"}>기타</option>
                 </NativeSelect>
             </FormControl>
-            <ul className="categories">
-                <li onClick={getCategoryHandler} className="countAll">
-                    전체
-                    <span className="countAll">{`(${cardData.length})`}</span>
-                </li>
-                <li onClick={getCategoryHandler} className="countDesign">
-                    디자인
-                    <span className="countDesign">{`(${cardData.length})`}</span>
-                </li>
-                <li onClick={getCategoryHandler} className="countTeam">
-                    팀플<span className="countTeam">()</span>
-                </li>
-                <li onClick={getCategoryHandler} className="countReport">
-                    레포트<span className="countReport">()</span>
-                </li>
-                <li onClick={getCategoryHandler} className="countStat">
-                    통계<span className="countStat">()</span>
-                </li>
-                <li onClick={getCategoryHandler} className="countCS">
-                    컴공<span className="countCS">()</span>
-                </li>
-                <li onClick={getCategoryHandler} className="countEx">
-                    그외<span className="countEx">()</span>
-                </li>
-            </ul>
         </div>
     );
 };
@@ -88,3 +49,43 @@ export default Category;
                 <option value="20">Twenty</option>
             </NativeSelect> */
 }
+
+// <ul className="categories">
+//                 <li onClick={getCategoryHandler} className="countAll">
+//                     전체
+//                     <span className="countAll">{`(${cardData.length})`}</span>
+//                 </li>
+//                 <li onClick={getCategoryHandler} className="countDesign">
+//                     디자인
+//                     <span className="countDesign">{`(${cardData.length})`}</span>
+//                 </li>
+//                 <li onClick={getCategoryHandler} className="countTeam">
+//                     팀플<span className="countTeam">()</span>
+//                 </li>
+//                 <li onClick={getCategoryHandler} className="countReport">
+//                     레포트<span className="countReport">()</span>
+//                 </li>
+//                 <li onClick={getCategoryHandler} className="countStat">
+//                     통계<span className="countStat">()</span>
+//                 </li>
+//                 <li onClick={getCategoryHandler} className="countCS">
+//                     컴공<span className="countCS">()</span>
+//                 </li>
+//                 <li onClick={getCategoryHandler} className="countEx">
+//                     그외<span className="countEx">()</span>
+//                 </li>
+//             </ul>
+
+// const [state, setState] = React.useState({
+//     age: '',
+//     name: 'hai',
+//   });
+
+//   const handleChange = (event) => {
+//     const name = event.target.name;
+//     setState({
+//       ...state,
+//       [name]: event.target.value,
+//     });
+//     console.log(state)
+//   };
