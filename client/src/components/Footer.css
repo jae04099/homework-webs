@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.footer-wrap {
+    background-color: #292A2D;
+    width: 100%;
+    height: 100%;
+    padding: 5rem 9rem;
+    margin-top: 5rem;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 0.78px solid white;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+.footer-logo {
+    margin-right: 6rem;
+}
+.logo-title {
+    margin-bottom: 15px;
+}
+.visit p, .contact p{
+    margin-bottom: 23px;
+    
+}
+.logo-title h4, .logo-title span {
+    font-family: 'KOTRA_BOLD-Bold';
+    font-size: 24px;
+}
+.logo-title span {
+    color: #FA8F2C;
+}
+.logo-title, .visit > p, .contact > p {
+    color: #fff;
+}
+.logo-desc, .address, .e-address {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    font-size: 13px;
+}
+.visit {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+.rights {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-icon {
+    display: flex;
+}
+
+.contact-icon > li {
+    margin-right: 15px;
+    list-style: none;
+}
+
+.fa {
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (max-width: 900px){
+    .footer-wrap {
+        display: grid;
+        grid-template-columns: 10% 1fr 10%;
+        grid-template-rows: 1fr 10%;
+        padding: 5rem 0 ;
+        
+    } 
+    .footer-logo {
+        margin-right: 0;
+    }
+    .footer-top {
+        grid-column: 2/3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-bottom {
+        grid-row: 2/-1;
+        grid-column: 2/3;
+    }
+    .visit {
+        margin-top: 70px;
+        margin-right: 0;
+    }
+    .contact {
+        margin-top: 0px;
+    }
+    .visit > p, .contact > p {
+        margin-bottom: 10px;
+    }
+}
