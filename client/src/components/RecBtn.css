@@ -9,10 +9,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 3rem;
-    border-style: none;
     box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.15);
     background: #fa8f2c;
-    cursor: pointer;
     transition: transform 0.3s ease-out, background 0.3s ease-out;
 }
 
@@ -20,10 +18,7 @@
     transform: rotate(180deg);
     background: #7662CD;
 }
-.btn-wrap > button:focus {
-    outline: none;
-    border: none;
-}
+
 .faPlus {
     font-size: 1.5rem;
     color: #fff;

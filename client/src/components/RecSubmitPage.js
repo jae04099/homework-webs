@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./RecSubmitPage.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,8 +25,11 @@ const RecSubmitPage = () => {
                 <div className="submit-desc">
                     <h3>추천하기🎁</h3>
                     <h4>
-                        여기에는 없지만,<br/><span>내가 아는 유용한
-                        사이트</span>를 추천해주세요.<br/>검토 후 추가하겠습니다!
+                        여기에는 없지만,
+                        <br />
+                        <span>내가 아는 유용한 사이트</span>를 추천해주세요.
+                        <br />
+                        검토 후 추가하겠습니다!
                     </h4>
                 </div>
                 <div className={classes.root}>
@@ -67,6 +72,11 @@ const RecSubmitPage = () => {
                 </div>
                 <div className="submit-btn">
                     <button type="submit">제출하기</button>
+                </div>
+                <div className="close">
+                    <button>
+                        창닫기
+                    </button>
                 </div>
             </div>
         </div>

@@ -9,6 +9,13 @@
 /* .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
 } */
+button:focus {
+    outline: none;
+}
+button {
+    border: none;
+    cursor: pointer;
+}
 
 .submit-bg {
     top: 0;
@@ -28,7 +35,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    padding: 2rem 2rem 3rem 2rem;
+    padding: 2rem 2rem 1rem 2rem;
 }
 
 .submit-desc {
@@ -66,8 +73,6 @@
     width: 60%;
     font-size: 15px;
     background: #7662CD;
-    border: none;
-    cursor: pointer;
     border-radius: 5px;
     color: #fff;
     transition: background 200ms ease-out;
@@ -77,6 +82,28 @@
     background: #4f428b;
 }
 
-.submit-btn > button:focus {
-    outline: none;
+.close {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: none;
 }
+
+.close > button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* .close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.close > button {
+    background: rgb(209, 54, 54);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    transform: rotate(45deg)
+} */
