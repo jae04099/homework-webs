@@ -1,0 +1,43 @@
+.btn-wrap {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+}
+
+.btn-wrap > button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    border-style: none;
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.15);
+    background: #fa8f2c;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, background 0.3s ease-out;
+}
+
+.btn-wrap > button:hover {
+    transform: rotate(180deg);
+    background: #7662CD;
+}
+
+.faPlus {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+@keyframes rotate-in {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+@keyframes rotate-out {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

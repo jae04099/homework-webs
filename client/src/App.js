@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Axios from "axios";
 import Category from "./components/Category";
+import RecBtn from "./components/RecBtn"
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -48,6 +49,7 @@ function App() {
                 </div>
             </div>
             <Footer />
+            <RecBtn />
         </div>
     );
 }
