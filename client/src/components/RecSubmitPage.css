@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'MapoPeacefull';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/* .notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+} */
+
+.submit-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.submit-wrap {
+    position: relative;
+    background: #fff;
+    max-width: 400px;
+    max-height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 2rem 2rem 3rem 2rem;
+}
+
+.submit-desc {
+    font-family: 'MapoPeacefull';
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.submit-desc > h3 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.submit-desc > h4 {
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.submit-desc > h4 > span {
+    background-color: rgb(250, 204, 118);
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.submit-btn > button {
+    font-family: 'MapoPeacefull';
+    padding: 1rem ;
+    width: 60%;
+    font-size: 15px;
+    background: #7662CD;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    transition: background 200ms ease-out;
+}
+
+.submit-btn > button:hover {
+    background: #4f428b;
+}
+
+.submit-btn > button:focus {
+    outline: none;
+}

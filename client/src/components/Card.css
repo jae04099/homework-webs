@@ -1,10 +1,13 @@
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-
-* {
-    font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@font-face {
+    font-family: 'MapoPeacefull';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .infoCard {
+    font-family: 'Noto Sans KR', sans-serif;
     margin: 10px;
     padding: 20px;
     border-radius: 10px;

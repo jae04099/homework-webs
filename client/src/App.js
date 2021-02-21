@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Axios from "axios";
 import Category from "./components/Category";
 import RecBtn from "./components/RecBtn"
+import RecSubmitPage from "./components/RecSubmitPage"
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -50,6 +51,7 @@ function App() {
             </div>
             <Footer />
             <RecBtn />
+            <RecSubmitPage />
         </div>
     );
 }

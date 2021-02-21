@@ -2,6 +2,7 @@
     position: fixed;
     right: 1.5rem;
     bottom: 1.5rem;
+    z-index: 3;
 }
 
 .btn-wrap > button {
@@ -19,7 +20,10 @@
     transform: rotate(180deg);
     background: #7662CD;
 }
-
+.btn-wrap > button:focus {
+    outline: none;
+    border: none;
+}
 .faPlus {
     font-size: 1.5rem;
     color: #fff;
