@@ -5,12 +5,15 @@ import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Axios from "axios";
 import Category from "./components/Category";
-import RecSubmitPage from "./components/RecSubmitPage"
+import RecSubmitPage from "./components/RecSubmitPage";
 
 function App() {
     const [lists, setLists] = useState([]);
     const [filtered, setFiltered] = useState(lists);
     const [category, setCategory] = useState("countAll");
+    const [recTitle, setRecTitle] = useState("");
+    const [recUrl, setRecUrl] = useState("");
+    const [recDesc, setRecDesc] = useState("");
 
     useEffect(() => {
         Axios.get("http://localhost:3001/api/get").then((res) => {
@@ -27,14 +30,22 @@ function App() {
         }
         setFiltered(filteredLists);
     }, [category]);
-    
+
+    const submitInfo = () => {
+        Axios.post("http://localhost:3001/api/insert", {
+            recTitle: recTitle,
+            recUrl: recUrl,
+            recDesc: recDesc,
+        });
+    };
 
     return (
         <div className="App">
             <Navbar />
             <div className="catWrap">
                 <div className="catInnerGrid">
-                <Category cardData={filtered} setCategory={setCategory} /></div>
+                    <Category cardData={filtered} setCategory={setCategory} />
+                </div>
             </div>
             <div className="cardWrap">
                 <div className="grid-card">
@@ -53,7 +64,12 @@ function App() {
             </div>
             <Footer />
             {/* <RecBtn /> */}
-            <RecSubmitPage />
+            <RecSubmitPage
+                setRecTitle={setRecTitle}
+                setRecUrl={setRecUrl}
+                setRecDesc={setRecDesc}
+                submitInfo={submitInfo}
+            />
         </div>
     );
 }

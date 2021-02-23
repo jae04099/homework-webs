@@ -18,14 +18,12 @@ const Category = ({ cardData, setCategory }) => {
         setCategory(e.target.value);
     };
     const classes = useStyles();
-    
+
     return (
         <div className="category-wrap">
             <FormControl className={classes.formControl}>
                 <InputLabel htmlFor="age-native-helper">분야</InputLabel>
-                <NativeSelect
-                    onChange={getCategoryHandler}
-                >
+                <NativeSelect onChange={getCategoryHandler}>
                     <option value={"countAll"}>전체</option>
                     <option value={"countDesign"}>디자인</option>
                     <option value={"countTeam"}>팀플</option>
