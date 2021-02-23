@@ -5,13 +5,13 @@ import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Axios from "axios";
 import Category from "./components/Category";
-import RecBtn from "./components/RecBtn"
 import RecSubmitPage from "./components/RecSubmitPage"
 
 function App() {
     const [lists, setLists] = useState([]);
     const [filtered, setFiltered] = useState(lists);
     const [category, setCategory] = useState("countAll");
+
     useEffect(() => {
         Axios.get("http://localhost:3001/api/get").then((res) => {
             setLists(res.data);
@@ -27,6 +27,8 @@ function App() {
         }
         setFiltered(filteredLists);
     }, [category]);
+    
+
     return (
         <div className="App">
             <Navbar />
@@ -50,7 +52,7 @@ function App() {
                 </div>
             </div>
             <Footer />
-            <RecBtn />
+            {/* <RecBtn /> */}
             <RecSubmitPage />
         </div>
     );

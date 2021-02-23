@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./RecSubmitPage.css";
+import "./RecBtn.css";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,68 +19,81 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RecSubmitPage = () => {
+    const [ctrSugList, setSugList] = useState("isClosed");
+    const hideShowBtnHandler = () => {
+        if (ctrSugList == "") {
+            setSugList("isClosed");
+        } else {
+            setSugList("");
+        }
+    };
     const classes = useStyles();
     return (
-        <div className="submit-bg">
-            <div className="submit-wrap">
-                <div className="submit-desc">
-                    <h3>추천하기🎁</h3>
-                    <h4>
-                        여기에는 없지만,
-                        <br />
-                        <span>내가 아는 유용한 사이트</span>를 추천해주세요.
-                        <br />
-                        검토 후 추가하겠습니다!
-                    </h4>
-                </div>
-                <div className={classes.root}>
-                    <TextField
-                        id="standard-full-width"
-                        label="사이트명"
-                        style={{ margin: 8 }}
-                        placeholder="과제좀해"
-                        helperText="Full width!"
-                        fullWidth
-                        margin="normal"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-                    <TextField
-                        id="standard-full-width"
-                        label="사이트 주소(url)"
-                        style={{ margin: 8 }}
-                        placeholder="http://homework.ml"
-                        helperText="Full width!"
-                        fullWidth
-                        margin="normal"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-                    <TextField
-                        id="standard-full-width"
-                        label="이 사이트를 추천하는 이유"
-                        style={{ margin: 8 }}
-                        placeholder="과제에 도움되는 사이트가 모여있어 편리해요."
-                        helperText="Full width!"
-                        fullWidth
-                        margin="normal"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-                </div>
-                <div className="submit-btn">
-                    <button type="submit">제출하기</button>
-                </div>
-                <div className="close">
-                    <button>
-                        창닫기
-                    </button>
+        <>
+            <div className="btn-wrap">
+                <button onClick={hideShowBtnHandler}>
+                    <FontAwesomeIcon className="faPlus" icon={faPlus} />
+                </button>
+            </div>
+            <div className={`submit-bg ${ctrSugList}`}>
+                <div className="submit-wrap">
+                    <div className="submit-desc">
+                        <h3>추천하기🎁</h3>
+                        <h4>
+                            여기에는 없지만,
+                            <br />
+                            <span>내가 아는 유용한 사이트</span>를 추천해주세요.
+                            <br />
+                            검토 후 추가하겠습니다!
+                        </h4>
+                    </div>
+                    <div className={classes.root}>
+                        <TextField
+                            id="standard-full-width"
+                            label="사이트명"
+                            style={{ margin: 8 }}
+                            placeholder="과제좀해"
+                            helperText="Full width!"
+                            fullWidth
+                            margin="normal"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                        <TextField
+                            id="standard-full-width"
+                            label="사이트 주소(url)"
+                            style={{ margin: 8 }}
+                            placeholder="http://homework.ml"
+                            helperText="Full width!"
+                            fullWidth
+                            margin="normal"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                        <TextField
+                            id="standard-full-width"
+                            label="이 사이트를 추천하는 이유"
+                            style={{ margin: 8 }}
+                            placeholder="과제에 도움되는 사이트가 모여있어 편리해요."
+                            helperText="Full width!"
+                            fullWidth
+                            margin="normal"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                    </div>
+                    <div className="submit-btn">
+                        <button type="submit">제출하기</button>
+                    </div>
+                    <div className="close">
+                        <button onClick={hideShowBtnHandler}>창닫기</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
