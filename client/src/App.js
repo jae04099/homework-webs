@@ -14,6 +14,8 @@ function App() {
     const [recTitle, setRecTitle] = useState("");
     const [recUrl, setRecUrl] = useState("");
     const [recDesc, setRecDesc] = useState("");
+    const [ctrSugList, setSugList] = useState("isClosed");
+    const [isBlank, setIsBlank] = useState(false)
 
     useEffect(() => {
         Axios.get("http://localhost:3001/api/get").then((res) => {
@@ -31,12 +33,30 @@ function App() {
         setFiltered(filteredLists);
     }, [category]);
 
+    const hideShowBtnHandler = () => {
+        if (ctrSugList == "") {
+            setSugList("isClosed");
+        } else {
+            setSugList("");
+        }
+    };
     const submitInfo = () => {
-        Axios.post("http://localhost:3001/api/insert", {
-            recTitle: recTitle,
-            recUrl: recUrl,
-            recDesc: recDesc,
-        });
+        if (recTitle == "" || recUrl == "" || recDesc == "") {
+            alert('no blank!')
+        }else {
+            Axios.post("http://localhost:3001/api/insert", {
+                recTitle: recTitle,
+                recUrl: recUrl,
+                recDesc: recDesc,
+            })
+                .catch((err) => {
+                    alert(err);
+                })
+                .then((res) => {
+                    alert("thanks!");
+                })
+                .then(setSugList("isClosed"));
+        }
     };
 
     return (
@@ -69,6 +89,8 @@ function App() {
                 setRecUrl={setRecUrl}
                 setRecDesc={setRecDesc}
                 submitInfo={submitInfo}
+                ctrSugList={ctrSugList}
+                hideShowBtnHandler={hideShowBtnHandler}
             />
         </div>
     );

@@ -19,24 +19,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RecSubmitPage = (props) => {
-    console.log(props);
-    const [ctrSugList, setSugList] = useState("isClosed");
-    const hideShowBtnHandler = () => {
-        if (ctrSugList == "") {
-            setSugList("isClosed");
-        } else {
-            setSugList("");
-        }
-    };
+    
     const classes = useStyles();
     return (
         <>
             <div className="btn-wrap">
-                <button onClick={hideShowBtnHandler}>
+                <button onClick={props.hideShowBtnHandler}>
                     <FontAwesomeIcon className="faPlus" icon={faPlus} />
                 </button>
             </div>
-            <div className={`submit-bg ${ctrSugList}`}>
+            <div className={`submit-bg ${props.ctrSugList}`}>
                 <div className="submit-wrap">
                     <div className="submit-desc">
                         <h3>추천하기🎁</h3>
@@ -101,7 +93,7 @@ const RecSubmitPage = (props) => {
                         </button>
                     </div>
                     <div className="close">
-                        <button onClick={hideShowBtnHandler}>창닫기</button>
+                        <button onClick={props.hideShowBtnHandler}>창닫기</button>
                     </div>
                 </div>
             </div>
