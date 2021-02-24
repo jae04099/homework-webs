@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RecSubmitPage = (props) => {
-    
     const classes = useStyles();
     return (
         <>
@@ -43,13 +42,14 @@ const RecSubmitPage = (props) => {
                     <div className={classes.root}>
                         <TextField
                             id="standard-full-width"
+                            error ={props.isBlank.errorText === '' || props.recTitle !== '' ? false : true }
                             label="사이트명"
                             onChange={(e) => {
                                 props.setRecTitle(e.target.value);
                             }}
                             style={{ margin: 8 }}
                             placeholder="과제좀해"
-                            helperText="Full width!"
+                            helperText={props.recTitle === '' ? props.isBlank.errorText : null}
                             fullWidth
                             margin="normal"
                             InputLabelProps={{
@@ -58,13 +58,14 @@ const RecSubmitPage = (props) => {
                         />
                         <TextField
                             id="standard-full-width"
+                            error ={props.isBlank.errorText === '' || props.recUrl !== '' ? false : true }
                             label="사이트 주소(url)"
                             onChange={(e) => {
                                 props.setRecUrl(e.target.value);
                             }}
                             style={{ margin: 8 }}
                             placeholder="http://homework.ml"
-                            helperText="Full width!"
+                            helperText={props.recUrl === '' ? props.isBlank.errorText : null}
                             fullWidth
                             margin="normal"
                             InputLabelProps={{
@@ -73,13 +74,14 @@ const RecSubmitPage = (props) => {
                         />
                         <TextField
                             id="standard-full-width"
+                            error ={props.isBlank.errorText === '' || props.recDesc !== '' ? false : true }
                             label="이 사이트를 추천하는 이유"
                             onChange={(e) => {
                                 props.setRecDesc(e.target.value);
                             }}
                             style={{ margin: 8 }}
                             placeholder="과제에 도움되는 사이트가 모여있어 편리해요."
-                            helperText="Full width!"
+                            helperText={props.recDesc === '' ? props.isBlank.errorText : null}
                             fullWidth
                             margin="normal"
                             InputLabelProps={{

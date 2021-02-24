@@ -15,7 +15,7 @@ function App() {
     const [recUrl, setRecUrl] = useState("");
     const [recDesc, setRecDesc] = useState("");
     const [ctrSugList, setSugList] = useState("isClosed");
-    const [isBlank, setIsBlank] = useState(false)
+    const [isBlank, setIsBlank] = useState({errorText: ''})
 
     useEffect(() => {
         Axios.get("http://localhost:3001/api/get").then((res) => {
@@ -42,17 +42,15 @@ function App() {
     };
     const submitInfo = () => {
         if (recTitle == "" || recUrl == "" || recDesc == "") {
-            alert('no blank!')
+            setIsBlank({errorText: '빈칸을 채워주세요!'})
         }else {
             Axios.post("http://localhost:3001/api/insert", {
                 recTitle: recTitle,
                 recUrl: recUrl,
                 recDesc: recDesc,
             })
-                .catch((err) => {
-                    alert(err);
-                })
                 .then((res) => {
+                    setIsBlank({errorText: ''})
                     alert("thanks!");
                 })
                 .then(setSugList("isClosed"));
@@ -88,8 +86,12 @@ function App() {
                 setRecTitle={setRecTitle}
                 setRecUrl={setRecUrl}
                 setRecDesc={setRecDesc}
+                recTitle={recTitle}
+                recUrl={recUrl}
+                recDesc={recDesc}
                 submitInfo={submitInfo}
                 ctrSugList={ctrSugList}
+                isBlank={isBlank}
                 hideShowBtnHandler={hideShowBtnHandler}
             />
         </div>
