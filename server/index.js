@@ -24,21 +24,31 @@ app.get("/api/get", (req, res) => {
 });
 
 app.post("/api/insert", (req, res) => {
-    const webUrl = req.body.webUrl;
-    const webTitle = req.body.webTitle;
-    const sqlInsert = "INSERT INTO web_lists (web_url, web_title) VALUE (?,?)";
-    db.query(sqlInsert, [webUrl, webTitle], (err, result) => {
-    
+    console.log(req.body);
+    const recTitle = req.body.recTitle;
+    const recUrl = req.body.recUrl;
+    const recDesc = req.body.recDesc;
+    const sqlInsert =
+        "INSERT INTO rec_web (rec_title, rec_url, rec_desc) VALUE (?,?,?)";
+    db.query(sqlInsert, [recTitle, recUrl, recDesc], (err, result) => {
+        console.log(result);
+        console.log(err);
     });
 });
+// app.post("/api/insert", (req, res) => {
+//     const webUrl = req.body.webUrl;
+//     const webTitle = req.body.webTitle;
+//     const sqlInsert = "INSERT INTO web_lists (web_url, web_title) VALUE (?,?)";
+//     db.query(sqlInsert, [webUrl, webTitle], (err, result) => {
+
+//     });
+// });
 
 app.delete("/api/delete/:webTitle", (req, res) => {
     const title = req.params.webTitle;
     const sqlDelete = "DELETE FROM web_lists WHERE web_title = ?";
 
-    db.query(sqlDelete, title, (err, result) => {
-        
-    });
+    db.query(sqlDelete, title, (err, result) => {});
 });
 
 // app.put("/api/update", (req, res) => {
