@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Axios from "axios";
 import Category from "./components/Category";
 import RecSubmitPage from "./components/RecSubmitPage";
+import Dropbanner from "./components/Dropbanner"
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -15,9 +16,18 @@ function App() {
     const [recUrl, setRecUrl] = useState("");
     const [recDesc, setRecDesc] = useState("");
     const [ctrSugList, setSugList] = useState("isClosed");
-    const [isBlank, setIsBlank] = useState({errorText: ''})
-
+    const [isBlank, setIsBlank] = useState({ errorText: "" });
+    const [isIe, setIsIe] = useState(false);
+    const isIE = () => {
+        if (
+            navigator.userAgent.indexOf("MSIE") != -1 ||
+            !!document.documentMode == true
+        ) {
+            setIsIe(true)
+        }
+    };
     useEffect(() => {
+        isIE();
         Axios.get("http://localhost:3001/api/get").then((res) => {
             setLists(res.data);
             setFiltered(res.data);
@@ -32,7 +42,7 @@ function App() {
         }
         setFiltered(filteredLists);
     }, [category]);
-
+    
     const hideShowBtnHandler = () => {
         if (ctrSugList == "") {
             setSugList("isClosed");
@@ -42,15 +52,15 @@ function App() {
     };
     const submitInfo = () => {
         if (recTitle == "" || recUrl == "" || recDesc == "") {
-            setIsBlank({errorText: '빈칸을 채워주세요!'})
-        }else {
+            setIsBlank({ errorText: "빈칸을 채워주세요!" });
+        } else {
             Axios.post("http://localhost:3001/api/insert", {
                 recTitle: recTitle,
                 recUrl: recUrl,
                 recDesc: recDesc,
             })
                 .then((res) => {
-                    setIsBlank({errorText: ''})
+                    setIsBlank({ errorText: "" });
                     alert("thanks!");
                 })
                 .then(setSugList("isClosed"));
@@ -59,6 +69,7 @@ function App() {
 
     return (
         <div className="App">
+            {isIe ? <Dropbanner /> : ''}
             <Navbar />
             <div className="catWrap">
                 <div className="catInnerGrid">
