@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Axios from "axios";
 import Category from "./components/Category";
 import RecSubmitPage from "./components/RecSubmitPage";
-import Dropbanner from "./components/Dropbanner"
+import Dropbanner from "./components/Dropbanner";
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -23,7 +23,7 @@ function App() {
             navigator.userAgent.indexOf("MSIE") != -1 ||
             !!document.documentMode == true
         ) {
-            setIsIe(true)
+            setIsIe(true);
         }
     };
     useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
         }
         setFiltered(filteredLists);
     }, [category]);
-    
+
     const hideShowBtnHandler = () => {
         if (ctrSugList == "") {
             setSugList("isClosed");
@@ -59,17 +59,16 @@ function App() {
                 recUrl: recUrl,
                 recDesc: recDesc,
             })
-                .then((res) => {
-                    setIsBlank({ errorText: "" });
-                    alert("thanks!");
-                })
-                .then(setSugList("isClosed"));
+                .then(
+                    setIsBlank({ errorText: "" }))
+                .then(setRecDesc(""), setRecTitle(""), setRecUrl(""), alert('의견 고맙습니다!'))
+                .then(setSugList("isClosed"))
         }
     };
 
     return (
         <div className="App">
-            {isIe ? <Dropbanner /> : ''}
+            {isIe ? <Dropbanner /> : ""}
             <Navbar />
             <div className="catWrap">
                 <div className="catInnerGrid">
