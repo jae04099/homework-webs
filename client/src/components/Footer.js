@@ -6,7 +6,7 @@ import "./Footer.css";
 
 const Footer = () => {
     return (
-        <div className="footer-wrap">
+        <footer className="footer-wrap">
             <div className="footer-top">
                 <div className="footer-logo">
                     <div className="logo-title">
@@ -66,7 +66,7 @@ const Footer = () => {
                     <p>© 2021 Adorevoy Inc. All rights reserved</p>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

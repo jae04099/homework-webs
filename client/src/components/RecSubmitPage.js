@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
 
 const RecSubmitPage = (props) => {
     const classes = useStyles();
+    const emptyHandler = (e) => {
+        e.target.reset();
+    }
     return (
         <>
             <div className="btn-wrap">
@@ -46,6 +49,7 @@ const RecSubmitPage = (props) => {
                             label="사이트명"
                             onChange={(e) => {
                                 props.setRecTitle(e.target.value);
+                                
                             }}
                             style={{ margin: 8 }}
                             placeholder="과제좀해"

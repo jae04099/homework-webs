@@ -17,6 +17,7 @@ function App() {
     const [recDesc, setRecDesc] = useState("");
     const [ctrSugList, setSugList] = useState("isClosed");
     const [isBlank, setIsBlank] = useState({ errorText: "" });
+    const [afterSubmit, setAfterSubmit] = useState(false)
     const [isIe, setIsIe] = useState(false);
     const isIE = () => {
         if (
@@ -50,6 +51,7 @@ function App() {
             setSugList("");
         }
     };
+    
     const submitInfo = () => {
         if (recTitle == "" || recUrl == "" || recDesc == "") {
             setIsBlank({ errorText: "빈칸을 채워주세요!" });
@@ -61,7 +63,7 @@ function App() {
             })
                 .then(
                     setIsBlank({ errorText: "" }))
-                .then(setRecDesc(""), setRecTitle(""), setRecUrl(""), alert('의견 고맙습니다!'))
+                .then(alert('의견 고맙습니다!'))
                 .then(setSugList("isClosed"))
         }
     };
@@ -103,6 +105,7 @@ function App() {
                 ctrSugList={ctrSugList}
                 isBlank={isBlank}
                 hideShowBtnHandler={hideShowBtnHandler}
+                afterSubmit={afterSubmit}
             />
         </div>
     );
