@@ -108,3 +108,22 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+/* dark-mode */
+
+@media (prefers-color-scheme: dark) {
+
+    .infoCard {
+        background: #2E333D;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+    }
+    .title h4 {
+        color: #fdfdfdd5
+    }
+    .title .url > a {
+        color: #fdfdfdb6
+    }
+    .desc p {
+        color: #fdfdfde3
+    }
+}
