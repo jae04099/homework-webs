@@ -19,6 +19,8 @@ function App() {
     const [isBlank, setIsBlank] = useState({ errorText: "" });
     const [afterSubmit, setAfterSubmit] = useState(false)
     const [isIe, setIsIe] = useState(false);
+
+    // IE 필터링 함수
     const isIE = () => {
         if (
             navigator.userAgent.indexOf("MSIE") != -1 ||
@@ -27,6 +29,8 @@ function App() {
             setIsIe(true);
         }
     };
+
+    // 데이터 리스트 최초 렌더링
     useEffect(() => {
         isIE();
         Axios.get("http://localhost:3001/api/get").then((res) => {
@@ -34,6 +38,8 @@ function App() {
             setFiltered(res.data);
         });
     }, []);
+
+    // 카테고리 변경 될 때 마다 렌더링
     useEffect(() => {
         let filteredLists = lists;
         if (category !== "countAll") {
@@ -44,6 +50,7 @@ function App() {
         setFiltered(filteredLists);
     }, [category]);
 
+    // 사이트 추천 화면 숨김, 보이게 하는 함수
     const hideShowBtnHandler = () => {
         if (ctrSugList == "") {
             setSugList("isClosed");
@@ -52,6 +59,7 @@ function App() {
         }
     };
     
+    // 사이트 추천 db에 저장하는 함수
     const submitInfo = () => {
         if (recTitle == "" || recUrl == "" || recDesc == "") {
             setIsBlank({ errorText: "빈칸을 채워주세요!" });
