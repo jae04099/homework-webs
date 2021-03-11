@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faBlogger } from "@fortawesome/free-brands-svg-icons";
+import styled from 'styled-components'
 
 import "./Footer.css";
 
@@ -71,3 +72,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

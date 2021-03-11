@@ -62,8 +62,8 @@ nav {
 }
 
 /* dark-mode */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     nav {
         background: #685aa38e;
     }
-}
+} */

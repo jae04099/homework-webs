@@ -7,6 +7,9 @@ import Axios from "axios";
 import Category from "./components/Category";
 import RecSubmitPage from "./components/RecSubmitPage";
 import Dropbanner from "./components/Dropbanner";
+import ThemeBtn from "./components/ThemeBtn"
+import styled, { ThemeProvider } from 'styled-components';
+import {dark, light} from "./components/theme";
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -19,7 +22,9 @@ function App() {
     const [isBlank, setIsBlank] = useState({ errorText: "" });
     const [afterSubmit, setAfterSubmit] = useState(false)
     const [isIe, setIsIe] = useState(false);
-
+    const [themeMode, setThemeMode] = useState('light'); // 테마 모드 세팅
+    const theme = themeMode === 'light' ? light : dark; 
+    const toggleTheme = () => setThemeMode(themeMode === 'light' ? 'dark' : 'light'); 
     // IE 필터링 함수
     const isIE = () => {
         if (
@@ -77,7 +82,8 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <ThemeProvider theme={theme}>
+        <S.App className="App">
             {isIe ? <Dropbanner /> : ""}
             <Navbar />
             <div className="catWrap">
@@ -85,6 +91,8 @@ function App() {
                     <Category cardData={filtered} setCategory={setCategory} />
                 </div>
             </div>
+            <ThemeBtn title={theme ==='light'? '일반' : '다크' }
+                         click={toggleTheme}/>
             <div className="cardWrap">
                 <div className="grid-card">
                     <div className="flex-card">
@@ -115,11 +123,21 @@ function App() {
                 hideShowBtnHandler={hideShowBtnHandler}
                 afterSubmit={afterSubmit}
             />
-        </div>
+        </S.App>
+        </ThemeProvider>
     );
 }
 
 export default App;
+
+const S = {};
+S.App = styled.div `
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: ${props => props.theme.colors.bgColor};
+`
+
 
 {
     /* <h1>CRUD APP</h1>

@@ -111,7 +111,7 @@
 
 /* dark-mode */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 
     .infoCard {
         background: #2E333D;
@@ -126,4 +126,4 @@
     .desc p {
         color: #fdfdfde3
     }
-}
+} */
