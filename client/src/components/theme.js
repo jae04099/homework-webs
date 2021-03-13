@@ -14,8 +14,8 @@ export const light = {
         bgColor: '#F2F6FC',
         cardBgColor: '#fff',
         cardShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-        titleColor: '#fdfdfdd5',
+        titleColor: 'rgba(0, 0, 0, 0.8)',
         urlColor: 'rgba(66, 66, 66, 0.8)',
-        descColor: '#fdfdfde3'
+        descColor: 'rgba(0, 0, 0, 0.8)'
     }
 }

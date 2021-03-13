@@ -23,7 +23,7 @@ function App() {
     const [afterSubmit, setAfterSubmit] = useState(false)
     const [isIe, setIsIe] = useState(false);
     const [themeMode, setThemeMode] = useState('light'); // 테마 모드 세팅
-    const theme = themeMode === 'light' ? light : dark; 
+    const theme = themeMode === 'light' ? dark : light; 
     const toggleTheme = () => setThemeMode(themeMode === 'light' ? 'dark' : 'light'); 
     // IE 필터링 함수
     const isIE = () => {
@@ -91,7 +91,7 @@ function App() {
                     <Category cardData={filtered} setCategory={setCategory} />
                 </div>
             </div>
-            <ThemeBtn title={theme ==='light'? '일반' : '다크' }
+            <ThemeBtn title={themeMode ==='light'? '일반으로' : '다크로' }
                          click={toggleTheme}/>
             <div className="cardWrap">
                 <div className="grid-card">

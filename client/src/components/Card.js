@@ -1,9 +1,10 @@
 import React from "react";
+import styled from 'styled-components'
 import "./Card.css";
 
 const Card = ({ cardData }) => {
     return (
-            <div className="infoCard">
+            <S.Card className="infoCard">
                 <div className="title">
                     <h4>{cardData.web_title}</h4>
                     <div className="url">
@@ -25,8 +26,28 @@ const Card = ({ cardData }) => {
                 <ul className="genre">
                     <li>{cardData.main_tag}</li>
                 </ul>
-            </div>
+            </S.Card>
     );
 };
 
 export default Card;
+
+const S = {};
+S.Card = styled.div `
+
+    background: ${props => props.theme.colors.cardBgColor};
+    box-shadow: ${props => props.theme.colors.cardShadow};
+
+.title h4 {
+    color: ${props => props.theme.colors.titleColor};
+
+}
+.title .url > a {
+    color: ${props => props.theme.colors.urlColor};
+
+}
+.desc p {
+    color: ${props => props.theme.colors.descColor};
+
+}
+`

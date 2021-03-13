@@ -21,7 +21,7 @@ right: 0;
     height: 2rem;
     border: none;
     background-color: #000;
-    color: ${(props) => props.theme.colors.titleColor}; // 테마 변경 컬러 지정
+    color: ${props => props.theme.colors.titleColor};
     border-radius: 8px;
     cursor: pointer;
 
