@@ -10,6 +10,7 @@ import Dropbanner from "./components/Dropbanner";
 import ThemeBtn from "./components/ThemeBtn"
 import styled, { ThemeProvider } from 'styled-components';
 import {dark, light} from "./components/theme";
+import CssBaseline from "@material-ui/core/CssBaseline"
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -83,12 +84,13 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline />
         <S.App className="App">
             {isIe ? <Dropbanner /> : ""}
             <Navbar />
             <div className="catWrap">
                 <div className="catInnerGrid">
-                    <Category cardData={filtered} setCategory={setCategory} />
+                    <Category cardData={filtered} setCategory={setCategory} themeMode={themeMode}/>
                 </div>
             </div>
             <ThemeBtn title={themeMode ==='light'? '일반으로' : '다크로' }

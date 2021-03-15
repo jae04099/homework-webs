@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from 'styled-components';
 import "./Card.css";
 
 const Card = ({ cardData }) => {
@@ -49,5 +49,11 @@ S.Card = styled.div `
 .desc p {
     color: ${props => props.theme.colors.descColor};
 
+}
+
+.genre li {
+    background-color: ${props => props.theme.colors.cardBgColor};
+    color: ${props => props.theme.colors.genreColor};
+    border: 1px solid ${props => props.theme.colors.genreColor}
 }
 `

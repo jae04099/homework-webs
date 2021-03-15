@@ -1,8 +1,19 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { NativeSelect, Select, InputLabel, MenuItem } from "@material-ui/core";
+import { makeStyles, createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { NativeSelect, Select, InputLabel, MenuItem, CssBaseline } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 
+const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark"
+    }
+  });
+  
+  const lightTheme = createMuiTheme({
+    palette: {
+      type: "light"
+    }
+  });
 const useStyles = makeStyles((theme) => ({
     formControl: {
         marginBottom: theme.spacing(5),
@@ -10,20 +21,25 @@ const useStyles = makeStyles((theme) => ({
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
+        backgroundColor: "#3f51b5"
     },
+   
+     
 }));
 
-const Category = ({ cardData, setCategory }) => {
+
+const Category = ({ cardData, setCategory, themeMode }) => {
     const getCategoryHandler = (e) => {
         setCategory(e.target.value);
     };
     const classes = useStyles();
-
     return (
-        <div className="category-wrap">
-            <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-helper">분야</InputLabel>
-                <NativeSelect onChange={getCategoryHandler}>
+        console.log(themeMode),
+        <MuiThemeProvider theme={themeMode == 'dark' ? lightTheme : darkTheme}>
+        <div className="category-wrap" >
+            <FormControl className={classes.formControl} >
+                <InputLabel className={classes.root} htmlFor="age-native-helper">분야</InputLabel>
+                <NativeSelect className={classes.root} onChange={getCategoryHandler}>
                     <option value={"countAll"}>전체</option>
                     <option value={"countDesign"}>디자인</option>
                     <option value={"countTeam"}>팀플</option>
@@ -34,6 +50,7 @@ const Category = ({ cardData, setCategory }) => {
                 </NativeSelect>
             </FormControl>
         </div>
+        </MuiThemeProvider>
     );
 };
 
