@@ -7,10 +7,10 @@ import Axios from "axios";
 import Category from "./components/Category";
 import RecSubmitPage from "./components/RecSubmitPage";
 import Dropbanner from "./components/Dropbanner";
-import ThemeBtn from "./components/ThemeBtn"
-import styled, { ThemeProvider } from 'styled-components';
-import {dark, light} from "./components/theme";
-import CssBaseline from "@material-ui/core/CssBaseline"
+import ThemeBtn from "./components/ThemeBtn";
+import styled, { ThemeProvider } from "styled-components";
+import { dark, light } from "./components/theme";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
     const [lists, setLists] = useState([]);
@@ -21,11 +21,12 @@ function App() {
     const [recDesc, setRecDesc] = useState("");
     const [ctrSugList, setSugList] = useState("isClosed");
     const [isBlank, setIsBlank] = useState({ errorText: "" });
-    const [afterSubmit, setAfterSubmit] = useState(false)
+    const [afterSubmit, setAfterSubmit] = useState(false);
     const [isIe, setIsIe] = useState(false);
-    const [themeMode, setThemeMode] = useState('light'); // 테마 모드 세팅
-    const theme = themeMode === 'light' ? dark : light; 
-    const toggleTheme = () => setThemeMode(themeMode === 'light' ? 'dark' : 'light'); 
+    const [themeMode, setThemeMode] = useState("light"); // 테마 모드 세팅
+    const theme = themeMode === "light" ? dark : light;
+    const toggleTheme = () =>
+        setThemeMode(themeMode === "light" ? "dark" : "light");
     // IE 필터링 함수
     const isIE = () => {
         if (
@@ -64,7 +65,7 @@ function App() {
             setSugList("");
         }
     };
-    
+
     // 사이트 추천 db에 저장하는 함수
     const submitInfo = () => {
         if (recTitle == "" || recUrl == "" || recDesc == "") {
@@ -75,57 +76,62 @@ function App() {
                 recUrl: recUrl,
                 recDesc: recDesc,
             })
-                .then(
-                    setIsBlank({ errorText: "" }))
-                .then(alert('의견 고맙습니다!'))
-                .then(setSugList("isClosed"))
+                .then(setIsBlank({ errorText: "" }))
+                .then(alert("의견 고맙습니다!"))
+                .then(setSugList("isClosed"));
         }
     };
 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-        <S.App className="App">
-            {isIe ? <Dropbanner /> : ""}
-            <Navbar />
-            <div className="catWrap">
-                <div className="catInnerGrid">
-                    <Category cardData={filtered} setCategory={setCategory} themeMode={themeMode}/>
-                </div>
-            </div>
-            <ThemeBtn title={themeMode ==='light'? '일반으로' : '다크로' }
-                         click={toggleTheme}/>
-            <div className="cardWrap">
-                <div className="grid-card">
-                    <div className="flex-card">
-                        {filtered.map((cardData) => {
-                            return (
-                                <Card
-                                    cardData={cardData}
-                                    category={category}
-                                    key={cardData._id}
-                                />
-                            );
-                        })}
+            <S.App className="App">
+                {isIe ? <Dropbanner /> : ""}
+                <Navbar />
+                <div className="catWrap">
+                    <div className="catInnerGrid">
+                        <Category
+                            cardData={filtered}
+                            setCategory={setCategory}
+                            themeMode={themeMode}
+                        />
                     </div>
                 </div>
-            </div>
-            <Footer />
-            {/* <RecBtn /> */}
-            <RecSubmitPage
-                setRecTitle={setRecTitle}
-                setRecUrl={setRecUrl}
-                setRecDesc={setRecDesc}
-                recTitle={recTitle}
-                recUrl={recUrl}
-                recDesc={recDesc}
-                submitInfo={submitInfo}
-                ctrSugList={ctrSugList}
-                isBlank={isBlank}
-                hideShowBtnHandler={hideShowBtnHandler}
-                afterSubmit={afterSubmit}
-            />
-        </S.App>
+                <ThemeBtn
+                    title={themeMode === "light" ? "일반으로" : "다크로"}
+                    click={toggleTheme}
+                />
+                <div className="cardWrap">
+                    <div className="grid-card">
+                        <div className="flex-card">
+                            {filtered.map((cardData) => {
+                                return (
+                                    <Card
+                                        cardData={cardData}
+                                        category={category}
+                                        key={cardData._id}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+                <Footer />
+                {/* <RecBtn /> */}
+                <RecSubmitPage
+                    setRecTitle={setRecTitle}
+                    setRecUrl={setRecUrl}
+                    setRecDesc={setRecDesc}
+                    recTitle={recTitle}
+                    recUrl={recUrl}
+                    recDesc={recDesc}
+                    submitInfo={submitInfo}
+                    ctrSugList={ctrSugList}
+                    isBlank={isBlank}
+                    hideShowBtnHandler={hideShowBtnHandler}
+                    afterSubmit={afterSubmit}
+                />
+            </S.App>
         </ThemeProvider>
     );
 }
@@ -133,13 +139,12 @@ function App() {
 export default App;
 
 const S = {};
-S.App = styled.div `
+S.App = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: ${props => props.theme.colors.bgColor};
-`
-
+    background: ${(props) => props.theme.colors.bgColor};
+`;
 
 {
     /* <h1>CRUD APP</h1>

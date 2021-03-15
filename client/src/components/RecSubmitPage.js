@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { dark, light } from "./theme";
+import styled, { ThemeProvider } from "styled-components";
 import "./RecSubmitPage.css";
 import "./RecBtn.css";
 
@@ -30,7 +32,7 @@ const RecSubmitPage = (props) => {
                     <FontAwesomeIcon className="faPlus" icon={faPlus} />
                 </button>
             </div>
-            <div className={`submit-bg ${props.ctrSugList}`}>
+            <S.RecSubmitPage className={`submit-bg ${props.ctrSugList}`}>
                 <div className="submit-wrap">
                     <div className="submit-desc">
                         <h3>추천하기🎁</h3>
@@ -102,9 +104,26 @@ const RecSubmitPage = (props) => {
                         <button onClick={props.hideShowBtnHandler}>창닫기</button>
                     </div>
                 </div>
-            </div>
+            </S.RecSubmitPage>
         </>
     );
 };
 
 export default RecSubmitPage;
+
+const S = {};
+S.RecSubmitPage = styled.div`
+.submit-wrap {
+    background: ${(props) => props.theme.colors.bgColor};
+}
+.submit-desc {
+    color: ${(props) => props.theme.colors.titleColor};
+}
+.submit-desc > h4 > span {
+    background-color: ${(props) => props.theme.colors.highlightColor};
+}
+
+.close > button {
+    color: ${(props) => props.theme.colors.descColor};;
+}
+`;

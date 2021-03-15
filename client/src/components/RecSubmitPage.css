@@ -92,7 +92,7 @@ button {
 .close > button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 
 .isClosed {

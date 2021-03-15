@@ -8,7 +8,8 @@ export const dark = {
         titleColor: '#fdfdfdd5',
         urlColor: '#fdfdfdb6',
         descColor: '#fdfdfde3',
-        genreColor: '#b09fff'
+        genreColor: '#b09fff',
+        highlightColor: ' rgb(86, 43, 126)'
     }
 }
 
@@ -20,19 +21,8 @@ export const light = {
         titleColor: 'rgba(0, 0, 0, 0.8)',
         urlColor: 'rgba(66, 66, 66, 0.8)',
         descColor: 'rgba(0, 0, 0, 0.8)',
-        genreColor: '#7662cd'
+        genreColor: '#7662cd',
+        highlightColor: 'rgb(250, 204, 118)'
     }
 }
 
-export const darkTheme = createMuiTheme({
-    palette: {
-        type: 'dark'
-        }
-    }
-);
-export const lightTheme = createMuiTheme({
-    palette: {
-        type: 'light'
-        }
-    }
-);
