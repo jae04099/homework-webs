@@ -61,6 +61,7 @@ const RecSubmitPage = (props) => {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            autoComplete='off'
                         />
                         <TextField
                             id="standard-full-width"
@@ -77,6 +78,7 @@ const RecSubmitPage = (props) => {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            autoComplete='off'
                         />
                         <TextField
                             id="standard-full-width"
@@ -93,6 +95,7 @@ const RecSubmitPage = (props) => {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            autoComplete='off'
                         />
                     </div>
                     <div className="submit-btn">

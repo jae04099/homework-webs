@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { NativeSelect, Select, InputLabel, MenuItem, CssBaseline } from "@material-ui/core";
+import { NativeSelect, InputLabel} from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 
 const darkTheme = createMuiTheme({
@@ -12,6 +12,7 @@ const darkTheme = createMuiTheme({
   const lightTheme = createMuiTheme({
     palette: {
       type: "light"
+      
     }
   });
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +35,6 @@ const Category = ({ cardData, setCategory, themeMode }) => {
     };
     const classes = useStyles();
     return (
-        console.log(themeMode),
         <MuiThemeProvider theme={themeMode == 'dark' ? darkTheme : lightTheme}>
         <div className="category-wrap" >
             <FormControl className={classes.formControl} >
