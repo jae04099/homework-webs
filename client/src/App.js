@@ -10,6 +10,7 @@ import Dropbanner from "./components/Dropbanner";
 import ThemeBtn from "./components/ThemeBtn";
 import styled, { ThemeProvider } from "styled-components";
 import { dark, light } from "./components/theme";
+import {useTheme} from "./components/useTheme"
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
@@ -23,10 +24,9 @@ function App() {
     const [isBlank, setIsBlank] = useState({ errorText: "" });
     const [afterSubmit, setAfterSubmit] = useState(false);
     const [isIe, setIsIe] = useState(false);
-    const [themeMode, setThemeMode] = useState("light"); // 테마 모드 세팅
+    const [themeMode, toggleTheme] = useTheme();
     const theme = themeMode === "light" ? dark : light;
-    const toggleTheme = () =>
-        setThemeMode(themeMode === "light" ? "dark" : "light");
+    
     // IE 필터링 함수
     const isIE = () => {
         if (
@@ -90,17 +90,23 @@ function App() {
                 <Navbar />
                 <div className="catWrap">
                     <div className="catInnerGrid">
+                        <div className="catInnerFlex">
                         <Category
+                            className="catSelect"
                             cardData={filtered}
                             setCategory={setCategory}
                             themeMode={themeMode}
                         />
+                        <ThemeBtn
+                            className="catBtn"
+                            title={
+                                themeMode === "light" ? "다크로" : "라이트로"
+                            }
+                            click={toggleTheme}
+                        />
+                    </div>
                     </div>
                 </div>
-                <ThemeBtn
-                    title={themeMode === "light" ? "일반으로" : "다크로"}
-                    click={toggleTheme}
-                />
                 <div className="cardWrap">
                     <div className="grid-card">
                         <div className="flex-card">

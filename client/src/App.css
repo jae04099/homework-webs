@@ -14,14 +14,22 @@
     grid-template-columns: 5% 1fr 5%;
 }
 
+
+.grid-card {
+    display: grid;
+    grid-column: 2/3;
+}
 .catWrap {
     display: grid;
     grid-template-columns: 10% 1fr 10%;
 }
-
-.grid-card, .catInnerGrid {
+.catInnerGrid {
     display: grid;
     grid-column: 2/3;
+}
+.catInnerFlex {
+    display: flex;
+    justify-content: space-between;
 }
 
 .flex-card {

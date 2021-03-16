@@ -14,13 +14,10 @@ export default ThemeBtn;
 const S = {};
 
 S.Button = styled.button`
-position: absolute;
-top: 0;
-right: 0;
     width: 3rem;
     height: 2rem;
     border: none;
-    background-color: #000;
+    background-color: ${props => props.theme.colors.bgColor};
     color: ${props => props.theme.colors.titleColor};
     border-radius: 8px;
     cursor: pointer;

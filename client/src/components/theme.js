@@ -1,6 +1,5 @@
-import { createMuiTheme } from '@material-ui/core/styles';
 
-export const dark = {
+export const light = {
     colors: {
         bgColor: '#232732',
         cardBgColor: '#2E333D',
@@ -13,7 +12,7 @@ export const dark = {
     }
 }
 
-export const light = {
+export const dark = {
     colors: {
         bgColor: '#F2F6FC',
         cardBgColor: '#fff',

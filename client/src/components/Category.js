@@ -35,7 +35,7 @@ const Category = ({ cardData, setCategory, themeMode }) => {
     const classes = useStyles();
     return (
         console.log(themeMode),
-        <MuiThemeProvider theme={themeMode == 'dark' ? lightTheme : darkTheme}>
+        <MuiThemeProvider theme={themeMode == 'dark' ? darkTheme : lightTheme}>
         <div className="category-wrap" >
             <FormControl className={classes.formControl} >
                 <InputLabel className={classes.root} htmlFor="age-native-helper">분야</InputLabel>
