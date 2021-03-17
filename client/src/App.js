@@ -3,14 +3,14 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
-import Axios from "axios";
 import Category from "./components/Category";
 import RecSubmitPage from "./components/RecSubmitPage";
 import Dropbanner from "./components/Dropbanner";
 import ThemeBtn from "./components/ThemeBtn";
-import styled, { ThemeProvider } from "styled-components";
 import { dark, light } from "./components/theme";
-import {useTheme} from "./components/useTheme"
+import {useTheme} from "./components/useTheme";
+import Axios from "axios";
+import styled, { ThemeProvider } from "styled-components";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
@@ -36,7 +36,9 @@ function App() {
             setIsIe(true);
         }
     };
-
+    const resetValue = (e) => {
+        console.log(this.inputRef.value)
+    }
     // 데이터 리스트 최초 렌더링
     useEffect(() => {
         isIE();
@@ -100,7 +102,7 @@ function App() {
                         <ThemeBtn
                             className="catBtn"
                             title={
-                                themeMode === "light" ? "다크로" : "라이트로"
+                                themeMode === "light" ? "🌕" : "☀️"
                             }
                             click={toggleTheme}
                         />

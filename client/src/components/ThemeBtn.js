@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+    
 
 const ThemeBtn = ({ title, click }) => {
     return (
@@ -14,8 +15,7 @@ export default ThemeBtn;
 const S = {};
 
 S.Button = styled.button`
-    width: 3rem;
-    height: 2rem;
+margin-bottom: 1.5rem;
     border: none;
     background-color: ${props => props.theme.colors.bgColor};
     color: ${props => props.theme.colors.titleColor};
@@ -23,7 +23,6 @@ S.Button = styled.button`
     cursor: pointer;
 
     span {
-        font-size: 1rem;
-        font-weight: bold;
+        font-size: 2rem;
     }
 `;

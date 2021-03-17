@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { dark, light } from "./theme";
 import styled, { ThemeProvider } from "styled-components";
 import "./RecSubmitPage.css";
 import "./RecBtn.css";
@@ -22,9 +21,11 @@ const useStyles = makeStyles((theme) => ({
 
 const RecSubmitPage = (props) => {
     const classes = useStyles();
-    const emptyHandler = (e) => {
-        e.target.reset();
+    let textInput = useRef(null)
+    const checkFunc = () => {
+        textInput.current.value = ""
     }
+
     return (
         <>
             <div className="btn-wrap">
@@ -49,6 +50,7 @@ const RecSubmitPage = (props) => {
                             id="standard-full-width"
                             error ={props.isBlank.errorText === '' || props.recTitle !== '' ? false : true }
                             label="사이트명"
+                            inputRef = {textInput}
                             onChange={(e) => {
                                 props.setRecTitle(e.target.value);
                                 
@@ -64,6 +66,7 @@ const RecSubmitPage = (props) => {
                             autoComplete='off'
                         />
                         <TextField
+                        inputRef = {textInput}
                             id="standard-full-width"
                             error ={props.isBlank.errorText === '' || props.recUrl !== '' ? false : true }
                             label="사이트 주소(url)"
@@ -81,6 +84,7 @@ const RecSubmitPage = (props) => {
                             autoComplete='off'
                         />
                         <TextField
+                        inputRef = {textInput}
                             id="standard-full-width"
                             error ={props.isBlank.errorText === '' || props.recDesc !== '' ? false : true }
                             label="이 사이트를 추천하는 이유"
@@ -104,7 +108,7 @@ const RecSubmitPage = (props) => {
                         </button>
                     </div>
                     <div className="close">
-                        <button onClick={props.hideShowBtnHandler}>창닫기</button>
+                        <button onClick={() => {props.hideShowBtnHandler(); checkFunc()}}>창닫기</button>
                     </div>
                 </div>
             </S.RecSubmitPage>
