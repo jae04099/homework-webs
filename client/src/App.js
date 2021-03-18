@@ -4,11 +4,12 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Category from "./components/Category";
+import Loading from "./components/Loading";
 import RecSubmitPage from "./components/RecSubmitPage";
 import Dropbanner from "./components/Dropbanner";
 import ThemeBtn from "./components/ThemeBtn";
 import { dark, light } from "./components/theme";
-import {useTheme} from "./components/useTheme";
+import { useTheme } from "./components/useTheme";
 import Axios from "axios";
 import styled, { ThemeProvider } from "styled-components";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -24,9 +25,11 @@ function App() {
     const [isBlank, setIsBlank] = useState({ errorText: "" });
     const [afterSubmit, setAfterSubmit] = useState(false);
     const [isIe, setIsIe] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
     const [themeMode, toggleTheme] = useTheme();
     const theme = themeMode === "light" ? dark : light;
-    
+
     // IE 필터링 함수
     const isIE = () => {
         if (
@@ -36,16 +39,17 @@ function App() {
             setIsIe(true);
         }
     };
-    const resetValue = (e) => {
-        console.log(this.inputRef.value)
-    }
+
     // 데이터 리스트 최초 렌더링
     useEffect(() => {
         isIE();
         Axios.get("http://localhost:3001/api/get").then((res) => {
+            setIsLoading(false);
             setLists(res.data);
             setFiltered(res.data);
         });
+        setIsLoading(true);
+        console.log("?");
     }, []);
 
     // 카테고리 변경 될 때 마다 렌더링
@@ -93,34 +97,36 @@ function App() {
                 <div className="catWrap">
                     <div className="catInnerGrid">
                         <div className="catInnerFlex">
-                        <Category
-                            className="catSelect"
-                            cardData={filtered}
-                            setCategory={setCategory}
-                            themeMode={themeMode}
-                        />
-                        <ThemeBtn
-                            className="catBtn"
-                            title={
-                                themeMode === "light" ? "🌕" : "☀️"
-                            }
-                            click={toggleTheme}
-                        />
-                    </div>
+                            <Category
+                                className="catSelect"
+                                cardData={filtered}
+                                setCategory={setCategory}
+                                themeMode={themeMode}
+                            />
+                            <ThemeBtn
+                                className="catBtn"
+                                title={themeMode === "light" ? "🌙" : "☀️"}
+                                click={toggleTheme}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="cardWrap">
                     <div className="grid-card">
                         <div className="flex-card">
-                            {filtered.map((cardData) => {
-                                return (
-                                    <Card
-                                        cardData={cardData}
-                                        category={category}
-                                        key={cardData._id}
-                                    />
-                                );
-                            })}
+                            {isLoading ? (
+                                <Loading />
+                            ) : (
+                                filtered.map((cardData) => {
+                                    return (
+                                        <Card
+                                            cardData={cardData}
+                                            category={category}
+                                            key={cardData._id}
+                                        />
+                                    );
+                                })
+                            )}
                         </div>
                     </div>
                 </div>
