@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Data from './data';
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
@@ -41,23 +42,24 @@ function App() {
     };
 
     // 데이터 리스트 최초 렌더링
-    useEffect(() => {
+    useEffect( async () => {
         isIE();
-        Axios.get("http://localhost:3001/api/get").then((res) => {
-            setIsLoading(false);
-            setLists(res.data);
-            setFiltered(res.data);
-        });
-        setIsLoading(true);
-        console.log("?");
+        // Axios.get("https://mysql-homeworkwebs.herokuapp.com/api/get").then((res) => {
+            await setLists(Data);
+            await setFiltered(Data);
+            await setIsLoading(false);
+        // });
+        // setIsLoading(true);
+        // console.log("?");
     }, []);
 
     // 카테고리 변경 될 때 마다 렌더링
     useEffect(() => {
         let filteredLists = lists;
+        console.log(category)
         if (category !== "countAll") {
             filteredLists = filteredLists.filter(
-                (lists) => lists.tag_class == category
+                (lists) => lists.tag_class === category
             );
         }
         setFiltered(filteredLists);
@@ -77,7 +79,7 @@ function App() {
         if (recTitle == "" || recUrl == "" || recDesc == "") {
             setIsBlank({ errorText: "빈칸을 채워주세요!" });
         } else {
-            Axios.post("http://localhost:3001/api/insert", {
+            Axios.post("https://mysql-homeworkwebs.herokuapp.com/api/insert", {
                 recTitle: recTitle,
                 recUrl: recUrl,
                 recDesc: recDesc,
