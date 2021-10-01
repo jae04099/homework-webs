@@ -5,12 +5,14 @@ const app = express();
 const mysql = require("mysql");
 
 const db = mysql.createConnection({
-    host: "localhost",
+    host: process.env.HEROKU_HOST,
     port: "3306",
-    user: "root",
-    password: "Lc0711zz",
-    database: "collegewebdb",
+    user: process.env.HEROKU_USER,
+    password: process.env.HEROKU_PW,
+    database: process.env.HEROKU_DB,
 });
+
+// mysql://bc127d0cee8940:7d37d76c@us-cdbr-east-03.cleardb.com/heroku_159c177e36b1ddc?reconnect=true
 
 app.use(cors());
 app.use(express.json());

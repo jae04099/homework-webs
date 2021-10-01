@@ -9,7 +9,7 @@
     "devStart": "nodemon index.js",
     "server": "cd server && npm run devStart",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run client\" \"npm run devStart\" " 
+    "dev": "concurrently \"npm run client\" \"npm run devStart\" "
   },
   "author": "",
   "license": "ISC",
@@ -18,8 +18,8 @@
     "concurrently": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "heroku": "^7.59.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.7"
   }
 }
-
